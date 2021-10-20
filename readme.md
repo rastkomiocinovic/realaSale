@@ -14,6 +14,8 @@ The app supports role based authentication. The different roles are:
 
 The frontend was created using Angular. The backend is written in TypeScript. Bootstrap and Chart.js were also used. The app uses a MongoDB database.
 
+The application also has additional functionality explained in the original project specification pdf (only available in Serbian).
+
 This project was completed in the summer of 2021 as part of the Internet Application Programming course at the University Of Belgrade School of Electrical Engineering (ETF).
 
 ## More screenshots
