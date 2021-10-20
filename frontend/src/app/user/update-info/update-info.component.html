@@ -1,0 +1,43 @@
+
+<form class="container">
+    <h1>Promena podataka</h1>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="nameInput">Ime</label>
+            <input type="text" id="nameInput" name="name" placeholder="Petar" class="form-control" [(ngModel)]='name'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="lastnameInput">Prezime</label>
+            <input type="text" id="lastnameInput" name="lastname" placeholder="Petrović" class="form-control" [(ngModel)]='lastname'>
+        </div>
+    </div>
+    <div id="avatarChoice" class="row">
+            <img id="avatarImg" [src]="avatar" class="col-sm-3">
+            <!--<img id="avatarImg" [src]="url ? url : 'assets/img/img_avatar.png'" class="col-sm-3">-->
+            <div class="col-sm-9 center-vertical">
+                <label for="fileInput">Izaberite profilnu fotografiju</label><br>
+                <input type='file' id="fileInput" class="form-control-file" (change)="encodeImageFile()" accept="image/*"><!--(change)="onSelectFile($event)" -->
+            </div>            
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="countryInput">Država</label>
+            <input type="text" id="countryInput" name="country" placeholder="Srbija" class="form-control" [(ngModel)]='country'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="cityInput">Grad</label>
+            <input type="text" id="cityInput" name="city" placeholder="Beograd" class="form-control"  [(ngModel)]='city'>
+        </div>
+    </div>
+
+    <div id="alert" class="alert alert-danger" role="alert">
+        Promena neuspela!
+    </div>
+    <div id="alertSuccess" class="alert alert-success" role="alert">
+        Promene uspešno sačuvane!
+    </div>
+    
+    <div class="row">
+        <button class="btn btn-primary" id="registerButton" (click)='update()'>Sačuvaj promene</button>
+    </div>
+</form>

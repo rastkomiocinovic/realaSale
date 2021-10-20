@@ -1,0 +1,25 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]='coverPhoto'>
+    <span class="badge bg-secondary" *ngIf="re.pending">Čeka potvrdu od strane agenta</span>
+    <div class="card-body">
+        <h5 class="card-title">{{re.name}}</h5>
+        <p class="card-text">{{re.city}} &#8226; {{re.municipality}} <br>
+            {{re.realestateType == 0 ? 'Kuća' : ('Stan &#8226; ' + re.rooms.toFixed(1)) }} &#8226; {{re.area}} &#13217; <br>
+            {{re.adType == 0 ? 'Prodaja' : 'Izdavanje'}}
+        </p>
+        <h4>{{re.cost}}&euro;</h4>
+        <div class="container d-flex justify-content-evenly" *ngIf='editable'>
+            <button class="btn btn-secondary" [routerLink]="['/realestate/edit', re._id]">Izmeni</button>
+            <button class="btn btn-danger" (click)='delete()'>Obriši</button>
+        </div>
+        <div class="container d-flex justify-content-evenly" *ngIf='isAgent && re.pending'>
+            <button class="btn btn-secondary" (click)='accept()'>Prihvati</button>
+            <button class="btn btn-danger" (click)='delete()'>Obriši</button>
+        </div>
+        <div class="container d-flex justify-content-evenly" *ngIf='isAgent && !re.pending'>
+            <button class="btn btn-success" *ngIf='!re.promoted' (click)='togglePromotion()'>Promoviši</button>
+            <button class="btn btn-warning" *ngIf='re.promoted' (click)='togglePromotion()'>Ukloni sa promocije</button>
+        </div>
+        <a [routerLink]="['/realestate/view', re._id]" class="stretched-link" *ngIf='clickable'></a>
+    </div>
+</div>

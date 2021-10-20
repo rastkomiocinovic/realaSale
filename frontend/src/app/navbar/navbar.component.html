@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink='/'>AgencijaLogo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="userType != '0' && userType != '1'">
+            <a class="nav-link" id="Pretraga" aria-current="page" href="#">Pretraga</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="AgencijaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf='userType == "0" || userType =="1"'>Agencija</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" routerLink='/agent_graphs'>Statistika</li>
+              <li class="dropdown-item" routerLink='/realestate/agent_realestate'>Upravljanje nekretninama</li>
+              <li class="dropdown-item" routerLink='/user_sales'>Ponude i prodaje</li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="NekretnineDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf='userType'>Moje nekretnine</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" routerLink='/realestate/user_realestate'>Pregled nekretnina</li>
+              <li class="dropdown-item" routerLink='/realestate/user_add'>Dodaj nekretninu</li>
+              <li class="dropdown-item" routerLink='/user_sales' *ngIf='userType=="3"'>Ponude</li>    
+            </ul>
+          </li>
+          <li class="nav-item dropdown" *ngIf='userType == "0"'>
+            <a class="nav-link dropdown-toggle" href="#" id="AdministracijaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Administracija
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" routerLink='/admin/registration_requests'>Zahtevi za registraciju</li>
+              <li class="dropdown-item" routerLink='admin/user_creation'>Kreiranje korinsika</li>
+              <li class="dropdown-item" routerLink='admin/edit_users'>Izmena korinsika</li>            
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Login and Register -->
+        <div class="d-flex" *ngIf='!userType'>
+            <button class="btn btn-primary" routerLink='/login'>Prijavljivanje</button>
+            <button class="btn btn-success" routerLink='/register'>Registracija</button>
+        </div>
+
+        <!-- Account management -->
+        <div id="accountDropdownDiv" class="d-flex" *ngIf='username'>
+            <div class="btn-group dropstart">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{username}}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="user/update_info">Promeni podatke</a></li>
+                    <li><a class="dropdown-item" routerLink="user/change_password">Promeni lozinku</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" (click)='logout()'>Odjavi se</a></li>
+                </ul>
+              </div>
+        </div>
+      </div>
+    </div>
+</nav>

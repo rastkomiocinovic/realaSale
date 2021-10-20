@@ -1,0 +1,68 @@
+<form class="container-fluid text-center">
+    <h1>Izmena korisnika</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th >Ime</th>
+                <th>Prezime</th>
+                <th>Korisničko Ime</th>
+                <th>Email</th>
+                <th>Država</th>
+                <th>Grad</th>
+                <th>Tip</th>
+                <th>Lozinka</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf='users.length == 0'>
+                <td colspan="7">Nema novih zahteva za registraciju.</td>
+            </tr>
+            <tr *ngFor="let u of users">
+                <td *ngIf="u.username != editing">{{u.name}}</td>
+                <td *ngIf="u.username != editing">{{u.lastname}}</td>
+                <td *ngIf="u.username != editing">{{u.username}}</td>
+                <td *ngIf="u.username != editing">{{u.email}}</td>
+                <td *ngIf="u.username != editing">{{u.country}}</td>
+                <td *ngIf="u.username != editing">{{u.city}}</td>
+                <td *ngIf="u.username != editing">{{u.type == 1 ? 'Agent' : 'Korisnik'}}</td>
+                <td *ngIf="u.username != editing">&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;</td>
+                <td *ngIf="u.username != editing">
+                    <button class="btn btn-secondary" (click)='edit(u)'>Izmeni</button>
+                    <button class="btn btn-danger" (click)='delete(u)'>Obriši</button>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name="name" value="{{u.name}}" class="form-control" [(ngModel)]='name'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name="lastname" value="{{u.lastname}}"  class="form-control" [(ngModel)]='lastname'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    {{u.username}}
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name="email" value="{{u.email}}" class="form-control" [(ngModel)]='email'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name="country" value="{{u.country}}" class="form-control" [(ngModel)]='country'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name='city' value="{{u.city}}" class="form-control" [(ngModel)]='city'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <select class="form-select" aria-label="Default select example" name="type" [(ngModel)]='type'>
+                        <option value="1">Agent</option>
+                        <option value="3">Korisnik</option>
+                    </select>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <input name="password" placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" type="password" class="form-control" [(ngModel)]='password'>
+                </td>
+                <td *ngIf="u.username == editing">
+                    <button class="btn btn-secondary" (click)='cancel(u)'>Odustani</button>
+                    <button class="btn btn-success" (click)='apply(u)'>Sačuvaj</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+</form>

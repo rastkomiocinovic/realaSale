@@ -1,0 +1,133 @@
+{{reId}}
+<form class="container">
+    <h1>Izmena nekretnine</h1>
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="nameInput" class="form-label">Deskriptivan naziv nekretnine</label>
+            <input id="nameInput" class="form-control textarea" type="text" name="name" [(ngModel)]="re.name">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="nameInput" class="form-label">Grad</label>
+            <input id="nameInput" class="form-control textarea" type="text" name="city" [(ngModel)]="re.city">
+        </div>
+        <div class="col-sm-3">
+            <label for="nameInput" class="form-label">Opština</label>
+            <input id="nameInput" class="form-control textarea" type="text" name="municipality" [(ngModel)]="re.municipality">
+        </div>
+        <div class="col-sm-3">
+            <label for="nameInput" class="form-label">Ulica</label>
+            <input id="nameInput" class="form-control textarea" type="text" name="street" [(ngModel)]="re.street">
+        </div>
+        <div class="col-sm-3">
+            <label for="nameInput" class="form-label">Broj</label>
+            <input id="nameInput" class="form-control textarea" type="text" name="number" [(ngModel)]="re.number">
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <label for="realestateTypeRadios">Tip nekretnine</label>
+                    <div class="container" id="realestateTypeRadios">
+                        <div class="row">
+                            <div class="form-check col-sm-4">
+                                <input class="form-check-input" type="radio" name="typeRadio" id="typeRadioH" [value]=0
+                                    [(ngModel)]='re.realestateType'>
+                                <label class="form-check-label" for="typeRadioH">
+                                    Kuća
+                                </label>
+                            </div>
+                            <div class="form-check col-sm-4">
+                                <input class="form-check-input" type="radio" name="typeRadio" id="typeRadioA" [value]=1
+                                    [(ngModel)]='re.realestateType'>
+                                <label class="form-check-label" for="typeRadioA">
+                                    Stan
+                                </label>
+                            </div>
+                            <div class="form-check col-sm-4">
+                                <input class="form-check-input" type="checkbox" id="moveInChk" name="furnished" [(ngModel)]="re.furnished">
+                                <label class="form-check-label" for="moveInChk">
+                                    Nameštena
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="adTypeRadios">Tip oglasa</label>
+                    <div class="container" id="adTypeRadios">
+                        <div class="row">
+                            <div class="form-check col-sm-4">
+                                <input class="form-check-input" type="radio" name="adType" id="typeRadioS" [value]=0 [(ngModel)]='re.adType'>
+                                <label class="form-check-label" for="typeRadioS">
+                                    Prodaja
+                                </label>
+                            </div>
+                            <div class="form-check col-sm-4">
+                                <input class="form-check-input" type="radio" name="adType" id="typeRadioR" [value]=1 [(ngModel)]='re.adType'>
+                                <label class="form-check-label" for="typeRadioR">
+                                    Iznajmljivanje
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                        <label for="areaIn">Cena</label>
+                        <input class="form-control textarea" type="number" id="areaIn" name="cost" [(ngModel)]="re.cost">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <label for="areaIn">Površina ( &#13217; )</label>
+            <input class="form-control textarea" type="number" name="area" id="areaIn" [(ngModel)]="re.area">
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <label for="roomsIn">Broj soba</label>
+            <input class="form-control textarea" type="number" name="rooms" id="roomsIn" [(ngModel)]="re.rooms">
+        </div>
+        <div class="col-md-3 col-sm-6" *ngIf="re.realestateType == 1">
+            <label for="floorsInA">Ukupno spratova</label>
+            <input class="form-control textarea" type="number" name="floors" id="floorsInA" [(ngModel)]="re.floors">
+        </div>
+        <div class="col-md-3 col-sm-6" *ngIf="re.realestateType == 1">
+            <label for="floorA">Sprat</label>
+            <input class="form-control textarea" type="number" name="floor" id="floorA" [(ngModel)]="re.floor">
+        </div>
+        <div class="col-md-3 col-sm-6" *ngIf="re.realestateType == 0">
+            <label for="floorH">Broj spratova</label>
+            <input class="form-control textarea" type="number"  name="floorH" id="floorH" [(ngModel)]="re.floors">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4 " *ngFor='let m of re.media'>
+            <div class="border border-1 rounded img-div d-flex justify-content-evenly align-items-center">
+                <img [src]='m'>
+                <button class="btn btn-danger" (click)='removeMedia(m)'>Remove</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <label for="mediaUpload" class="form-label">Dodavanje slika i video zapisa</label>
+            <input class="form-control" type="file" id="fileInput" accept="image/*, video/*" multiple (change)='encodeMediaFiles()'>
+        </div>
+    </div>
+    <div class="alert alert-danger" role="alert" id="errorAlert">
+        Greska!
+    </div>
+    <div class="alert alert-success" role="alert" id="errorAlert">
+        Nekretnina dodata!
+    </div>
+    <div id="successAlert" class="alert alert-success" role="alert">
+        Promene sačuvane!
+      </div>
+    <div class="row d-flex justify-content-evenly">
+        <button class="btn btn-secondary" (click)='leavePage()'>Nazad</button>
+        <button class="btn btn-success" (click)='edit()'>Sačuvaj izmenu</button>
+    </div>
+</form>

@@ -1,0 +1,76 @@
+
+<form class="container center-vertical">
+    <h1 class="text-center">Kreacija novih korisnika</h1>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="nameInput">Naziv</label>
+            <input type="text" id="nameInput" name="name" placeholder="Petar" class="form-control" [(ngModel)]='name'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="lastnameInput">Adresa</label>
+            <input type="text" id="lastnameInput" name="lastname" placeholder="Petrović" class="form-control" [(ngModel)]='lastname'>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="usernameInput">Korisničko ime</label>
+            <input type="text" id="usernameInput" name="username" placeholder="Unesite korisničko ime" class="form-control" [(ngModel)]='username'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" name="email" placeholder="pera@example.com" class="form-control"  [(ngModel)]='email'>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="passwordInput">Lozinka</label>
+            <input type="password" id="passwordInput" name="password" placeholder="Unesite lozinku" class="form-control"  [(ngModel)]='password'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="passwordConfirmInput"></label>
+            <input type="password" id="passwordConfirmInput" name="password" placeholder="Potvrdite lozinku" class="form-control" [(ngModel)]='passwordConfirmation'>
+        </div>
+    </div>
+    <div id="avatarChoice" class="row">
+            <img id="avatarImg" [src]="avatar" class="col-sm-3">
+            <!--<img id="avatarImg" [src]="url ? url : 'assets/img/img_avatar.png'" class="col-sm-3">-->
+            <div class="col-sm-9 center-vertical">
+                <label for="fileInput">Izaberite profilnu fotografiju</label><br>
+                <input type='file' id="fileInput" class="form-control" (change)='encodeImageFile()'><!--(change)="onSelectFile($event)" -->
+            </div>            
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="countryInput">Država</label>
+            <input type="text" id="countryInput" name="country" placeholder="Srbija" class="form-control" [(ngModel)]='country'>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="cityInput">Grad</label>
+            <input type="text" id="cityInput" name="city" placeholder="Beograd" class="form-control"  [(ngModel)]='city'>
+        </div>
+    </div>
+    <label for="userTypeRadios">Tip korinsika</label>
+    <div class="row form-group d-flex justify-content-evenly" id="userTypeRadios">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="userTypeRadio" id="agentRadio" [value]=1 [(ngModel)]='type'>
+            <label class="form-check-label" for="agentRadio">
+              Agent
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input " type="radio" name="userTypeRadio" id="userRadio" [value]=3 [(ngModel)]='type'>
+            <label class="form-check-label" for="userRadio">
+                Registrovani korisnik
+            </label>
+        </div>
+    </div>
+    <div id="alert" class="alert alert-danger" role="alert">
+        Kreiranje naloga nije uspelo!
+    </div>
+    <div id="alertSuccess" class="alert alert-success" role="alert">
+        Nalog je kreiran!
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" id="registerButton" (click)='createUser()'>Napravi nalog</button>
+    </div>
+</form>

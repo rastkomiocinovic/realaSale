@@ -1,0 +1,9 @@
+<img class="d-block w-100" [src]='re.media[0]'>
+<div class="carousel-caption d-none d-md-block">
+    <h5>{{re.name}}</h5>
+    <p>{{re.city}} &#8226; {{re.municipality}} &#8226;
+        {{re.realestateType == 0 ? 'Kuća' : ('Stan &#8226; ' + re.rooms.toFixed(1)) }} &#8226; {{re.area}} &#13217;<br>
+        {{re.adType == 0 ? 'Prodaja' : 'Izdavanje'}}</p>
+        <h4>{{re.cost}}&euro;</h4>
+</div>
+<a [routerLink]="['/realestate/view', re._id]" class="stretched-link" *ngIf='username'></a>

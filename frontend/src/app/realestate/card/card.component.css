@@ -1,0 +1,13 @@
+img {
+    height: 215px;
+    object-fit: cover;
+}
+.card {
+    margin-bottom: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+h5 {
+    height: 60px;
+}

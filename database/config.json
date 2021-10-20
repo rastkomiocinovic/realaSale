@@ -1,0 +1,6 @@
+/* 1 */
+{
+    "_id" : ObjectId("60eff58bdfda1823c9f69804"),
+    "saleCommission" : 0.1,
+    "rentCommission" : 0.25
+}

@@ -1,0 +1,85 @@
+<form class="container text-center">
+    <h1 *ngIf="userType == 3">Ponude</h1>
+    <h1 *ngIf="userType != 3">Ponude</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Adresa</th>
+                <th>Cena</th>
+                <th>Ponuda</th>
+                <th>Ponudjač</th>
+                <th>Od</th>
+                <th>Do</th>
+                <th>Prihvati / Odbij</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf='sales.length == 0'>
+                <td colspan="7">Nema novih zahteva za registraciju.</td>
+            </tr>
+            <tr *ngFor="let s of sales">
+                <td>{{s.re.street}} {{s.re.number}}, {{s.re.city}}</td>
+                <td>{{s.re.cost}}</td>
+                <td>{{s.cost}}</td>
+                <td>{{s.buyer}}</td>
+                <td>{{s.dateFrom}}</td>
+                <td>{{s.dateTo}}</td>
+                <td *ngIf="(s.status == 0 &&  userType == 3) || (s.status == 1 &&  userType != 3)">
+                    <button class="btn btn-success" (click)='approve(s)'>Prihvati</button>                
+                    <button class="btn btn-danger" (click)='delete(s)'>Odbij</button>
+                </td>
+                <td *ngIf="s.status == 1 &&  userType == 3">
+                    Čeka se potvrda agencije
+                </td>
+                <td *ngIf="s.status == 2">
+                    Ponuda prihvaćena!
+                </td>
+                <td *ngIf="s.status == -1">
+                    Ponuda odbijena!
+                </td>
+            </tr>
+        </tbody>
+    </table>   
+    
+    
+    <h1 *ngIf="userType != 3">Profit</h1>
+    <table class="table" *ngIf="userType != 3">
+        <thead>
+            <tr>
+                <th>Adresa</th>
+                <th>Cena</th>
+                <th>Ponuda</th>
+                <th>Ponudjač</th>
+                <th>Od</th>
+                <th>Do</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf='sold.length == 0'>
+                <td colspan="7">Nema prodatih nekretnina.</td>
+            </tr>
+            <tr *ngFor="let s of sold">
+                <td>{{s.re.street}} {{s.re.number}}, {{s.re.city}}</td>
+                <td>{{s.re.cost}}</td>
+                <td>{{s.cost}}</td>
+                <td>{{s.buyer}}</td>
+                <td>{{s.dateFrom}}</td>
+                <td>{{s.dateTo}}</td>
+                <td>{{s.cost * (s.type == 0 ? commissionSale : commissionRent)}}&euro;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf='userType==0' class="row justify-content-center">
+        <div class="input-group">
+            <span class="input-group-text">Udeo Prodaja:</span>
+            <input class="form-control" name="saleCommission" type="number" [(ngModel)]='commissionSale'>
+            <span class="input-group-text">Udeo Iznajmljivanje:</span>
+            <input class="form-control" type="number" name="rentCommission" [(ngModel)]='commissionRent'>
+            <button class="btn btn-success" (click)='saveConfig()'>Sačuvaj</button>
+        </div>
+        
+        
+    </div>
+</form>

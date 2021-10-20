@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div id="carousel" class="carousel slide col-lg-8" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let img of re.media; first as isFirst" class="carousel-item {{isFirst ? 'active' : ''}}">
+                    <img [src]="img" class="d-block w-100">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="col-lg-4">
+            <h2>{{re.name}}</h2>
+            <p class="text-right">
+                Grad: {{re.city}} <br>
+                Opština: {{re.municipality}} <br>
+                Adresa: {{re.street}} {{re.number}} <br>
+                Tip objekta: {{re.realestateType == 0 ? 'Kuća' : 'Stan' }} <br>
+                Broj soba: {{re.rooms}} <br>
+                <span *ngIf="re.realestateType == 0">
+                    Broj spratova: {{re.floors}}
+                </span>
+                <span *ngIf="re.realestateType == 1">
+                    Ukupno spratova: {{re.floors}} <br>
+                    Sprat: {{re.floor}}
+                </span>
+                <br>
+                Površina: {{re.area}} &#13217; <br>
+                {{re.adType == 0 ? 'Prodaja' : 'Izdavanje'}}
+            </p>
+            <h2>{{re.cost}}&euro;</h2>
+            <span *ngIf='re.adType == 0'>
+                <div class="form-check">              
+                    <input class="form-check-input" type="radio" name="paymentTypeRadio" id="CashRadio" [value]=1 [(ngModel)]='transactionType'>
+                    <label class="form-check-label" for="CashRadio">
+                        Gotovina
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="paymentTypeRadio" id="CreditRadio" [value]=2 [(ngModel)]='transactionType'>
+                    <label class="form-check-label" for="CreditRadio">
+                        Kredit - Učešće {{offer * 0.2}}&euro;
+                    </label>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Ponuda</span>
+                    <input class="form-control" type="number" [(ngModel)]='offer'>
+                    <button class="form-control btn-secondary" (click)='sendOffer()'>Pošalji ponudu</button>
+                </div>
+            </span>
+            <span *ngIf='re.adType == 1'>
+                <div class="input-group">
+                    <span class="input-group-text">Od</span>
+                    <input class="form-control" type="date" [(ngModel)]='dateFrom'>
+                    <span class="input-group-text">Do</span>
+                    <input class="form-control" type="date" [(ngModel)]='dateTo'>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Ponuda</span>
+                    <input class="form-control" type="number" [(ngModel)]='offer'>
+                    <button class="form-control btn-secondary" (click)='sendOffer()'>Pošalji ponudu</button>
+                </div>                
+            </span>
+            <div class="alert alert-danger" id="alertError">Sva polja su obavezna!</div>
+            <div class="alert alert-success" id="alertSuccess">Ponuda poslata!</div>         
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<form class="container text-center">
+    <h1>Zahtevi za registraciju</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th >Ime</th>
+                <th>Prezime</th>
+                <th>Korisničko Ime</th>
+                <th>Email</th>
+                <th>Država</th>
+                <th>Grad</th>
+                <th>Prihvati / Odbij</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf='users.length == 0'>
+                <td colspan="7">Nema novih zahteva za registraciju.</td>
+            </tr>
+            <tr *ngFor="let u of users">
+                <td>{{u.name}}</td>
+                <td>{{u.lastname}}</td>
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.country}}</td>
+                <td>{{u.city}}</td>
+                <td>
+                    <button class="btn btn-success" (click)='approve(u)'>Prihvati</button>
+                
+                    <button class="btn btn-danger" (click)='delete(u)'>Odbij</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+</form>

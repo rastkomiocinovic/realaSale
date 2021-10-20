@@ -1,0 +1,16 @@
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+#avatarChoice {
+    padding: 15px;
+}
+
+.alert {
+    margin-top: 20px;
+}

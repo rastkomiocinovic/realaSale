@@ -1,0 +1,192 @@
+/* 1 */
+{
+    "_id" : ObjectId("60efe8adca418f11505dad86"),
+    "cost" : 10000,
+    "owner" : "pera",
+    "buyer" : "user",
+    "realestateId" : "60efe55eca418f11505dad73",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60efeb4e91cce62ba03d6278"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "type" : 0,
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60efeb5791cce62ba03d6279"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "type" : 0,
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60efeb8291cce62ba03d627a"),
+    "cost" : 90000,
+    "owner" : "pera",
+    "buyer" : "user",
+    "realestateId" : "60efe55eca418f11505dad73",
+    "status" : -1,
+    "type" : 0,
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60efeb9a91cce62ba03d627b"),
+    "cost" : 90000,
+    "owner" : "pera",
+    "buyer" : "user",
+    "realestateId" : "60efe55eca418f11505dad73",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60efebcd91cce62ba03d627c"),
+    "cost" : 90000,
+    "owner" : "pera",
+    "buyer" : "user",
+    "realestateId" : "60efe55eca418f11505dad73",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("60eff0948dcc4b133c7131a8"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("60eff1608dcc4b133c7131ab"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("60eff1638dcc4b133c7131ad"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("60eff1c08dcc4b133c7131af"),
+    "cost" : 200000,
+    "owner" : "agency",
+    "buyer" : "user",
+    "realestateId" : "60edd6152dce50076c2198d3",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("60eff2ad8dcc4b133c7131b4"),
+    "dateFrom" : "2021-07-27",
+    "dateTo" : "2021-07-21",
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "pera",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : -1,
+    "type" : 1,
+    "__v" : 0
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("60eff3cb8dcc4b133c7131b9"),
+    "dateFrom" : "2021-07-22",
+    "dateTo" : "2021-07-12",
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "user",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : -1,
+    "type" : 1,
+    "__v" : 0
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("60eff3d38dcc4b133c7131ba"),
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "user",
+    "dateFrom" : "2021-07-22",
+    "dateTo" : "2021-07-12",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("60eff3d68dcc4b133c7131bc"),
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "user",
+    "dateFrom" : "2021-07-22",
+    "dateTo" : "2021-07-12",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("60eff4288dcc4b133c7131be"),
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "user",
+    "dateFrom" : "2021-07-22",
+    "dateTo" : "2021-07-12",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : -1,
+    "__v" : 0
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("60eff4788dcc4b133c7131c0"),
+    "cost" : 890,
+    "owner" : "user",
+    "buyer" : "user",
+    "dateFrom" : "2021-07-22",
+    "dateTo" : "2021-07-12",
+    "realestateId" : "60edc06728d66a0b9c2e5f50",
+    "status" : 2,
+    "__v" : 0
+}

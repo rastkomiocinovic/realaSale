@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Grad</span>
+                <input type="text" class="form-control" placeholder="Beograd" name="city" [(ngModel)]="city">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Cena od</span>
+            <input type="number" class="form-control" placeholder="200&euro;" name="minCost" [(ngModel)]="minCost">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Cena do</span>
+                <input type="number" class="form-control" placeholder="1000000&euro;" name="maxCost" [(ngModel)]="maxCost">
+            </div>
+        </div>
+        <div class="col-md-3 d-flex">
+            <button class="btn btn-primary h-75 w-100" (click)='search()'>Pretražite</button>
+        </div>
+    </div>
+    <div id="alert" class="alert alert-danger">
+        Potrebno je uneti makar jedan kriterijum pretrage!
+    </div>
+    <div *ngIf='results && results.length == 0' class="alert alert-danger" style="display: block;">
+        Nema nekretnina koje ispunjavaju kriterijum
+    </div>
+    <div class="row">
+        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6" id="{{r._id}}" *ngFor="let r of results">
+            <app-card [re]='r' [clickable]='username'></app-card>
+        </div>
+    </div>
+</div>    
+
+<div class="container" id="cardContainer">
+    
+</div>
