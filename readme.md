@@ -1,6 +1,6 @@
 # realaSale
 
-![index](images/user_index.png) <br>
+![](images/user_index.PNG) <br>
 
 ## Project Description
 This project is a fully functional web application for advertising the renting and sale of realastate created using the MEAN stack.
@@ -18,16 +18,16 @@ This project was completed in the summer of 2021 as part of the Internet Applica
 
 ## More screenshots
 
-![index](images/realestate_view.png) <br>
+![](images/realestate_view.PNG) <br>
 
-![index](images/realestate_add.png) <br>
+![](images/realestate_add.PNG) <br>
 
-![index](images/realestate_manage.png) <br>
+![](images/realestate_manage.PNG) <br>
 
-![index](images/users.png) <br>
+![](images/users.PNG) <br>
 
-![index](images/agency_stats.png) <br>
+![](images/agency_stats.PNG) <br>
 
-![index](images/offers.png) <br>
+![](images/offers.PNG) <br>
 
-![index](images/register.png) <br>
+![](images/register.PNG) <br>
